@@ -10,7 +10,7 @@ namespace NeptuneEvo.Fractions
     class Ems : Script
     {
         private static nLog Log = new nLog("EMS");
-        public static int HumanMedkitsLefts = 100;
+        public static int HumanMedkitsLefts = 25000;
 
         [ServerEvent(Event.ResourceStart)]
         public void onResourceStart()
@@ -178,7 +178,7 @@ namespace NeptuneEvo.Fractions
             player.SetData("CALLEMS_COL", colshape);
 
             player.SetData("IS_CALLEMS", true);
-            Manager.sendFractionMessage(8, $"Поступил вызов от игрока ({player.Value})");
+            Manager.sendFractionMessage(8, $"Поступил вызов от игрока ({player.Value}) ~y~({player.Position.DistanceTo(p.Position)}м)~w~");
             Manager.sendFractionMessage(8, $"~b~Поступил вызов от игрока ({player.Value})", true);
         }
 
@@ -229,9 +229,9 @@ namespace NeptuneEvo.Fractions
                 };
                 where = 8;
 
-                Manager.sendFractionMessage(7, $"{player.Name.Replace('_', ' ')} принял вызов от игрока ({target.Value})");
+                Manager.sendFractionMessage(8, $"{player.Name.Replace('_', ' ')} принял вызов от игрока ({target.Value})");
                 where = 9;
-                Manager.sendFractionMessage(7, $"~b~{player.Name.Replace('_', ' ')} принял вызов от игрока ({target.Value})", true);
+                Manager.sendFractionMessage(8, $"~b~{player.Name.Replace('_', ' ')} принял вызов от игрока ({target.Value})", true);
                 where = 10;
                 Notify.Send(target, NotifyType.Info, NotifyPosition.BottomCenter, $"Игрок ({player.Value}) принял Ваш вызов", 3000);
                 where = 11;
